@@ -1,4 +1,5 @@
-name: pdfview_flutter
+name: tutorial
+
 description: PDF view in Flutter App
 
 publish_to: 'none'
@@ -6,25 +7,22 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ^3.5.1
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.3
-  flutter_pdfview: ^1.0.3
-  path_provider: ^1.6.11
-  font_awesome_flutter: ^8.8.1
+  flutter_pdfview: ^1.3.3
+  path_provider: ^2.1.4
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
 
   assets:
-    - assets/corrupted.pdf
-    - assets/demo-link.pdf
+    - assets/

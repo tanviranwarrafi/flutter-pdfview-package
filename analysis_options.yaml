@@ -1,0 +1,203 @@
+# include: package:flutter_lints/flutter.yaml
+
+# Check https://dart-lang.github.io/linter/lints/ for lint rules documentation
+# Update from http://dart-lang.github.io/linter/lints/options/options.html
+
+analyzer:
+
+  errors:
+    missing_required_param: error
+    missing_return: error
+    todo: ignore
+
+  language:
+    # strict-inference: true
+    strict-raw-types: true
+
+linter:
+  rules:
+    - always_put_required_named_parameters_first # not crucial and we do it all around
+    - annotate_overrides
+
+    - avoid_annotating_with_dynamic # we want to be explicit with dynamic
+    - avoid_catching_errors
+    - avoid_double_and_int_checks
+    - avoid_empty_else
+    - avoid_equals_and_hash_code_on_mutable_classes
+    - avoid_escaping_inner_quotes
+    # - avoid_field_initializers_in_const_classes
+    - avoid_implementing_value_types
+    - avoid_init_to_null
+    - avoid_js_rounded_ints
+    - avoid_null_checks_in_equality_operators
+    - avoid_print
+    - avoid_private_typedef_functions
+    - avoid_redundant_argument_values # <<<< most important analysis >>>>
+    - avoid_relative_lib_imports
+    - avoid_renaming_method_parameters
+    - avoid_return_types_on_setters
+    - avoid_returning_null_for_void
+    - avoid_returning_this
+    - avoid_setters_without_getters
+    - avoid_shadowing_type_parameters
+    - avoid_single_cascade_in_expression_statements # ex: ..function ----> .function
+    - avoid_slow_async_io
+    - avoid_types_as_parameter_names
+    - avoid_types_on_closure_parameters # conflicts with always_specify_types
+    - avoid_unnecessary_containers
+    - avoid_unused_constructor_parameters
+    - avoid_void_async
+    - avoid_web_libraries_in_flutter
+
+    - await_only_futures
+    - camel_case_extensions
+    - camel_case_types
+    - cancel_subscriptions
+    - close_sinks
+    - comment_references
+    - control_flow_in_finally
+    - curly_braces_in_flow_control_structures
+    - empty_catches
+    - empty_constructor_bodies
+    - empty_statements
+
+    - file_names
+    - implementation_imports
+    - leading_newlines_in_multiline_strings
+    - library_names
+    - library_prefixes
+    - collection_methods_unrelated_type
+    - missing_whitespace_between_adjacent_strings
+
+    - no_adjacent_strings_in_list
+    - no_duplicate_case_values
+    - no_logic_in_create_state
+    - no_runtimeType_toString
+    - null_closures
+    - one_member_abstracts
+    - only_throw_errors
+    - overridden_fields
+    - package_prefixed_library_names
+
+    # - prefer_asserts_in_initializer_lists
+    # - prefer_asserts_with_message # we do this commonly
+    - prefer_conditional_assignment
+    - prefer_const_constructors # <<<< most important analysis >>>>
+    # - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - prefer_constructors_over_static_methods # ----> need to learn more
+    - prefer_contains
+    - prefer_equal_for_default_values
+    - prefer_foreach
+    - prefer_function_declarations_over_variables
+    - prefer_generic_function_type_aliases # ex: typedef F = void Function();
+    - prefer_if_null_operators
+    - prefer_initializing_formals
+    - prefer_inlined_adds
+    - prefer_int_literals
+    # - prefer_interpolation_to_compose_strings
+    - prefer_iterable_whereType
+    # - prefer_null_aware_operators
+    - prefer_single_quotes
+    - prefer_spread_collections # ----> need to learn more
+    - prefer_void_to_null
+    - provide_deprecation_message
+    - recursive_getters # ex: int get field => field ----> int get field => _field
+    - slash_for_doc_comments
+    # - sort_child_properties_last
+    - sort_unnamed_constructors_first
+    - test_types_in_equals # ----> need to study
+    - throw_in_finally # avoid throw in finally blocks.
+    - type_init_formals # ex: Point(int this.x, int this.y) ----> Point(this.x, this.y)
+
+    - unawaited_futures
+    - unnecessary_await_in_return
+    - unnecessary_brace_in_string_interps
+    - unnecessary_const
+    - unnecessary_getters_setters
+    - unnecessary_lambdas
+    - unnecessary_new
+    - unnecessary_null_aware_assignments
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_overrides
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    - unnecessary_statements
+    - unnecessary_string_escapes
+    - unnecessary_string_interpolations
+    - unnecessary_this
+    - unrelated_type_equality_checks
+    - unsafe_html
+
+    - use_full_hex_values_for_flutter_colors # ex: Color(0x00000001)
+    - use_function_type_syntax_for_parameters # ex: Iterable<T> where(bool Function(T) predicate) {}
+    - use_raw_strings
+    - use_rethrow_when_possible
+    - use_setters_to_change_properties
+    - use_string_buffers
+
+    - valid_regexps
+    - void_checks
+
+    ## <<< Pub Rules >>>
+    - package_names
+    # - sort_pub_dependencies
+    - secure_pubspec_urls
+    - depend_on_referenced_packages
+
+
+    ### Unused Rules ###
+
+    # - always_declare_return_types
+    # - always_specify_types # <<<<< preferable approach >>>>> # we use type inference
+    # - always_put_control_body_on_new_line # preferable approach # ex: if (true) break; -> if (true) {break;}
+
+    # - avoid_as # deprecated now
+    # - avoid_function_literals_in_foreach_calls
+    # - avoid_classes_with_only_static_members # ------> need to implement this
+    # - avoid_bool_literals_in_conditional_expressions # ------> need to implement this
+    # - avoid_catches_without_on_clauses # we catch both Exceptions and Errors
+    # - avoid_positional_boolean_parameters # <<<<< preferable approach >>>>> ex: hintStyle(bool isDark) -> hintStyle(isDark)
+
+    # - directives_ordering
+    # - constant_identifier_names # <<<<< preferable approach >>>>> ex: camel case issue
+    # - diagnostic_describe_all_properties # nice to have for libs but overkill for applications
+    # - cascade_invocations # <<<<< preferable approach >>>>> ex: sliderList.addAll(imgList) -> ...addAll(imgList)
+
+    # - hash_and_equals
+    # - invariant_booleans
+    # - iterable_contains_unrelated_type
+    # - join_return_with_assignment
+    # - flutter_style_todos # don't need those for now
+    # - lines_longer_than_80_chars # we use it when temporarily adding strings before translations
+
+    # - non_constant_identifier_names
+    # - package_api_docs
+    # - parameter_assignments # we do this commonly
+    # - omit_local_variable_types # opposite of always_specify_types
+
+    # - prefer_adjacent_string_concatenation
+    # - prefer_collection_literals
+    # - prefer_typing_uninitialized_variables
+    # - prefer_is_empty
+    # - prefer_is_not_empty
+    # - prefer_is_not_operator
+    # - prefer_mixin # ----> need to study
+    # - prefer_double_quotes # We use single quotes
+    # - prefer_relative_imports # we do not use relative imports
+    # - prefer_for_elements_to_map_fromIterable
+    # - prefer_final_fields # <<<<< preferable approach >>>>>
+    # - prefer_final_in_for_each # <<<<< preferable approach >>>>>
+    # - prefer_final_locals # <<<<< preferable approach >>>>>
+    # - prefer_if_elements_to_conditional_expressions # <<<<< preferable approach >>>>>
+    # - prefer_expression_function_bodies # conflicts with https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#consider-using--for-short-functions-and-methods
+
+    # - sort_constructors_first # <<<<< ignore your data models >>>>>
+    # - type_annotate_public_apis # subset of always_specify_types # ----> need to study
+    # - public_member_api_docs # do not use for an application, only a library # ----> need to study
+
+    # - unnecessary_final # having finals is the preferred approach
+
+    # - use_to_and_as_if_applicable # ----> need to study
+    # - use_key_in_widget_constructors # <<<< I don't prefer >>>>
